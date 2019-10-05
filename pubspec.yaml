@@ -5,14 +5,15 @@ author: Felix Angelov <felangelov@gmail.com>
 homepage: https://github.com/felangel/hydrated_bloc
 
 environment:
-  sdk: ">=2.0.0 <3.0.0"
+  sdk: ">=2.4.0 <3.0.0"
 
 dependencies:
   flutter:
     sdk: flutter
   bloc: ^0.15.0
   path_provider: ^1.1.0
-  platform: ^2.2.1
+  intl: ^0.16.0
+  universal_html: ^1.1.6
 
 dev_dependencies:
   flutter_test:
