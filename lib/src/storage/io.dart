@@ -13,8 +13,8 @@ class HydratedBlocStorage implements HydratedBlocStorageInterface {
   final File _file;
 
   /// Returns an instance of `HydratedBlocStorage`.
-  /// `storageDirectory` can optionally be provided.
-  /// By default, `getTemporaryDirectory` is used.
+  /// By default, `getTemporaryDirectory` is used as directory and
+  /// `hydrated_bloc.json` is used as filename.
   static Future<HydratedBlocStorage> getInstance() async {
     if (_instance != null) {
       return _instance;

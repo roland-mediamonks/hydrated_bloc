@@ -4,12 +4,16 @@ import 'dart:html';
 
 import 'package:hydrated_bloc/src/storage/interface.dart';
 
+/// Implementation of `HydratedStorage` which uses `window.localStorage`
+/// to persist and retrieve state changes from the local storage.
 class HydratedBlocStorage implements HydratedBlocStorageInterface {
   static HydratedBlocStorage _instance;
   final Map<String, dynamic> _storage;
   final Storage _localStorage;
   final String _fileName;
 
+  /// Returns an instance of `HydratedBlocStorage`.
+  /// By default, `hydrated_bloc` is used as key.
   static Future<HydratedBlocStorage> getInstance() async {
     if (_instance != null) {
       return _instance;
