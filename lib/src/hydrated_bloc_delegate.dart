@@ -4,7 +4,7 @@ import 'dart:io';
 
 import 'package:bloc/bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
-import 'package:hydrated_bloc/src/storage/hydrated_bloc_storage.dart';
+import 'package:hydrated_bloc/src/hydrated_bloc_storage.dart';
 
 /// {@template hydratedblocdelegate}
 /// A specialized `BlocDelegate` which handles persisting state changes

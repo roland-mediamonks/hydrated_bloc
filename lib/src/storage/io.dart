@@ -2,11 +2,11 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
 
-import 'package:hydrated_bloc/src/storage/interface.dart';
 import 'package:path_provider/path_provider.dart';
+import 'interface.dart';
 
-/// Implementation of `HydratedStorage` which uses `PathProvider` and `dart.io`
-/// to persist and retrieve state changes from the local device.
+/// Implementation of `HydratedBlocStorage` which uses `PathProvider` and
+/// `dart.io` to persist and retrieve state changes from the local device.
 class HydratedBlocStorage implements HydratedBlocStorageInterface {
   static HydratedBlocStorage _instance;
   final Map<String, dynamic> _storage;

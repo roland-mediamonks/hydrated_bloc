@@ -1,4 +1,4 @@
-import 'package:hydrated_bloc/src/storage/hydrated_bloc_storage.dart';
+import 'package:hydrated_bloc/src/hydrated_bloc_storage.dart';
 
 abstract class HydratedBlocStorageInterface {
   static Future<HydratedBlocStorage> getInstance() {

@@ -2,9 +2,9 @@ import 'dart:async';
 import 'dart:convert';
 import 'dart:html';
 
-import 'package:hydrated_bloc/src/storage/interface.dart';
+import 'interface.dart';
 
-/// Implementation of `HydratedStorage` which uses `window.localStorage`
+/// Implementation of `HydratedBlocStorage` which uses `window.localStorage`
 /// to persist and retrieve state changes from the local storage.
 class HydratedBlocStorage implements HydratedBlocStorageInterface {
   static HydratedBlocStorage _instance;
