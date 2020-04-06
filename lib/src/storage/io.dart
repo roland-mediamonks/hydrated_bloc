@@ -1,27 +1,13 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
+import 'package:hydrated_bloc/src/storage/interface.dart';
 import 'package:path_provider/path_provider.dart';
-
-/// Interface which `HydratedBlocDelegate` uses to persist and retrieve
-/// state changes from the local device.
-abstract class HydratedStorage {
-  /// Returns value for key
-  dynamic read(String key);
-
-  /// Persists key value pair
-  Future<void> write(String key, dynamic value);
-
-  /// Deletes key value pair
-  Future<void> delete(String key);
-
-  /// Clears all key value pairs from storage
-  Future<void> clear();
-}
 
 /// Implementation of `HydratedStorage` which uses `PathProvider` and `dart.io`
 /// to persist and retrieve state changes from the local device.
-class HydratedBlocStorage implements HydratedStorage {
+class HydratedBlocStorage implements HydratedBlocStorageInterface {
   static HydratedBlocStorage _instance;
   final Map<String, dynamic> _storage;
   final File _file;
@@ -29,14 +15,12 @@ class HydratedBlocStorage implements HydratedStorage {
   /// Returns an instance of `HydratedBlocStorage`.
   /// `storageDirectory` can optionally be provided.
   /// By default, `getTemporaryDirectory` is used.
-  static Future<HydratedBlocStorage> getInstance({
-    Directory storageDirectory,
-  }) async {
+  static Future<HydratedBlocStorage> getInstance() async {
     if (_instance != null) {
       return _instance;
     }
 
-    final directory = storageDirectory ?? await getTemporaryDirectory();
+    final directory = await getTemporaryDirectory();
     final file = File('${directory.path}/.hydrated_bloc.json');
     var storage = <String, dynamic>{};
 

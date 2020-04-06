@@ -8,7 +8,7 @@ import 'package:bloc/bloc.dart';
 /// based on the persisted state. This allows state to be persisted
 /// across hot restarts as well as complete app restarts.
 abstract class HydratedBloc<Event, State> extends Bloc<Event, State> {
-  final HydratedStorage _storage =
+  final HydratedBlocStorage _storage =
       (BlocSupervisor.delegate as HydratedBlocDelegate).storage;
 
   @mustCallSuper

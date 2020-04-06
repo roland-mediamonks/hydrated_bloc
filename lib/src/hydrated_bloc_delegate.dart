@@ -1,8 +1,10 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
+
 import 'package:bloc/bloc.dart';
 import 'package:hydrated_bloc/hydrated_bloc.dart';
+import 'package:hydrated_bloc/src/storage/hydrated_bloc_storage.dart';
 
 /// {@template hydratedblocdelegate}
 /// A specialized `BlocDelegate` which handles persisting state changes
@@ -10,7 +12,7 @@ import 'package:hydrated_bloc/hydrated_bloc.dart';
 /// {@endtemplate}
 class HydratedBlocDelegate extends BlocDelegate {
   /// Instance of `HydratedStorage` used to manage persisted states.
-  final HydratedStorage storage;
+  final HydratedBlocStorage storage;
 
   /// Builds a new instance of `HydratedBlocDelegate` with the
   /// default `HydratedBlocStorage`.
@@ -23,7 +25,7 @@ class HydratedBlocDelegate extends BlocDelegate {
     Directory storageDirectory,
   }) async {
     return HydratedBlocDelegate(
-      await HydratedBlocStorage.getInstance(storageDirectory: storageDirectory),
+      await HydratedBlocStorage.getInstance(),
     );
   }
 
